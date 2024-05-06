@@ -31,5 +31,10 @@ API klient je navržen pro komunikaci s API Bakalářů pomocí jazyka Python. P
 
 Pro použití API klienta je nejprve nutné provést inicializaci objektu klienta a přihlášení pomocí přihlašovacích údajů studenta. Poté je možné volat jednotlivé funkce pro získání a manipulaci s daty z API.
 
+Proměnné potřebné pro přihlášení:
+- `username`: Uživatelské jméno
+- `password`: Heslo
+- `url`: URL adresa Bakalářů (musí odkazovat na přihlašovací stránku).
+
 ##
 Kompletní dokumentaci k API Bakalářů a seznamu Endpointů naleznete zde: [bakalari-api-v3](https://github.com/bakalari-api/bakalari-api-v3)
