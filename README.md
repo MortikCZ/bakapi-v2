@@ -26,7 +26,7 @@ API klient je navržen pro komunikaci s API Bakalářů pomocí jazyka Python. P
 ### Funkce API klienta:
 - `get_student_info()`: Tato funkce slouží k získání informací o studentovi.
 - `get_subjects()`: Tato funkce vrátí seznam předmětů a informace o nich..
-- `get_timetable()`: Tato funkce vrátí rozvrh studenta.
+- `get_timetable_actual()`: Tato funkce vrátí aktuální rozvrh.
 - `get_homework()`: Tato funkce vrátí seznam domácích úkolů.
 
 Pro použití API klienta je nejprve nutné provést inicializaci objektu klienta a přihlášení pomocí přihlašovacích údajů studenta. Poté je možné volat jednotlivé funkce pro získání a manipulaci s daty z API.
