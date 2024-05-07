@@ -12,11 +12,16 @@ Tento projekt používá kód z nasledujícího repozitáře:
 [bakapi](https://github.com/mvolfik/bakapi), autor: [mvolfik](https://github.com/mvolfik)
 
 ## Instalace
-Instalace je zatím možná pouze pomocí stažení zdrojových kódů z tohoto repozitáře.
-
-V budoucnu bude možné instalovat balíček pomocí `pip` příkazu.
-
+Instalace je možná pomocí `pip` příkazu:
+```bash
+pip install bakapi-v2
+py -m pip install bakapi-v2
+```
 ## Changelog
+
+### 0.2
+- Přidána funkce `get_api_info`, `get_absence`, `get_absence`, `get_gdpr_info`, `get_marks`, `get_events`, `get_my_events` a `get_public_events`.
+- Nově je možné instalovat balíček pomocí `pip` příkazu.
 ### 0.1
 - První release 
 
@@ -24,10 +29,17 @@ V budoucnu bude možné instalovat balíček pomocí `pip` příkazu.
 API klient je navržen pro komunikaci s API Bakalářů pomocí jazyka Python. Poskytuje sadu funkcí pro získávání dat z API a jejich manipulaci.
 
 ### Funkce API klienta:
-- `get_student_info()`: Tato funkce slouží k získání informací o studentovi.
-- `get_subjects()`: Tato funkce vrátí seznam předmětů a informace o nich..
-- `get_timetable()`: Tato funkce vrátí rozvrh studenta.
-- `get_homework()`: Tato funkce vrátí seznam domácích úkolů.
+- `get_student_info`: Tato funkce slouží k získání informací o studentovi.
+- `get_subjects`: Tato funkce vrátí seznam předmětů a informace o nich..
+- `get_timetable_actual`: Tato funkce vrátí rozvrh studenta.
+- `get_homework`: Tato funkce vrátí seznam domácích úkolů.
+- `get_absence`: Tato funkce vrátí seznam absencí studenta.
+- `get_marks`: Tato funkce vrátí seznam známek studenta.
+- `get_events`: Tato funkce vrátí seznam událostí.
+- `get_my_events`: Tato funkce vrátí seznam událostí studenta.
+- `get_public_events`: Tato funkce vrátí seznam veřejných událostí.
+- `get_gdpr_info`: Tato funkce vrátí informace o GDPR.
+- `get_api_info`: Tato funkce vrátí informace o API.
 
 Pro použití API klienta je nejprve nutné provést inicializaci objektu klienta a přihlášení pomocí přihlašovacích údajů studenta. Poté je možné volat jednotlivé funkce pro získání a manipulaci s daty z API.
 
@@ -37,4 +49,4 @@ Proměnné potřebné pro přihlášení:
 - `url`: URL adresa Bakalářů (musí odkazovat na přihlašovací stránku).
 
 ##
-Kompletní dokumentaci k API Bakalářů a seznamu Endpointů naleznete zde: [bakalari-api-v3](https://github.com/bakalari-api/bakalari-api-v3)
+Kompletní dokumentaci k API Bakalářů a seznam Endpointů naleznete [zde](https://github.com/bakalari-api/bakalari-api-v3).
