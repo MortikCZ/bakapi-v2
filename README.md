@@ -20,7 +20,7 @@ py -m pip install bakapi-v2
 ## Changelog
 
 ### 0.2
-- Přidána funkce `get_api_info`, `get_absence`, `get_absence`, `get_gdpr_info`, `get_marks`, `get_events`, `get_my_events` a `get_public_events`.
+- Přidána funkce `get_api_info`, `get_absence`, `get_gdpr_info`, `get_marks`, `get_events`, `get_my_events` a `get_public_events`.
 - Nově je možné instalovat balíček pomocí `pip` příkazu.
 ### 0.1
 - První release 
