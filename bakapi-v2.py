@@ -1,22 +1,18 @@
 import warnings
-from cgi import parse_header
 from datetime import date, datetime, timedelta, timezone
 from typing import Union
 from urllib.parse import quote, unquote, urljoin
 import requests
-
+from email.message import Message
 
 class BakaAPIException(Exception):
     pass
 
-
 class InvalidCredentials(BakaAPIException):
     pass
 
-
 class InvalidResponse(BakaAPIException):
     pass
-
 
 class BakapiUser:
     token_valid_until = None
@@ -199,7 +195,48 @@ class BakapiUser:
     def get_subjects_info(
             self
             ):
-        
         return self.query_api("api/3/subjects")
-
-
+    
+    def get_api_info(
+            self
+    ):
+        return self.query_api("api")
+    
+    def get_absence(
+            self
+    ):
+        return self.query_api("api/3/absence/student")
+    
+    def get_gdpr_info(
+            self
+    ):
+        return self.query_api("api/3/gdpr/commissioners")
+    
+    def get_marks(
+        self,
+        since: Union[datetime, date, str] = None,
+        to: Union[datetime, date, str] = None,
+    ):
+        if type(since) in (date, datetime):
+            since = since.strftime("%Y-%m-%d")
+        if type(to) in (date, datetime):
+            to = to.strftime("%Y-%m-%d")
+        
+        params = {"from": since, "to": to}
+        
+        return self.query_api("api/3/marks", params=params)
+    
+    def get_events(
+            self
+    ):
+        return self.query_api("api/3/events")
+    
+    def get_my_events(
+            self
+    ):
+        return self.query_api("api/3/events/my")
+    
+    def get_public_events(
+            self
+    ):
+        return self.query_api("api/3/events/public")
