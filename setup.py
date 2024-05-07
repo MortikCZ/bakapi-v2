@@ -6,7 +6,7 @@ with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
 setup(
-    name='bakapi-v2',
+    name='bakapiv2',
     version='0.2',
     url='https://github.com/MortikCZ/bakapi-v2',
     project_urls = {
