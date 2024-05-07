@@ -14,8 +14,8 @@ Tento projekt používá kód z nasledujícího repozitáře:
 ## Instalace
 Instalace je možná pomocí `pip` příkazu:
 ```bash
-pip install bakapi-v2
-py -m pip install bakapi-v2
+pip install bakapiv2
+py -m pip install bakapiv2
 ```
 ## Changelog
 
