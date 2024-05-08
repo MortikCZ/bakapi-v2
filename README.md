@@ -14,11 +14,12 @@ Tento projekt používá kód z nasledujícího repozitáře:
 ## Instalace
 Instalace je možná pomocí `pip` příkazu:
 ```bash
-pip install bakapiv2
-py -m pip install bakapiv2
+pip install bakapi-v2
+py -m pip install bakapi-v2
 ```
 ## Changelog
-
+### 0.3 
+- Oprava PyPi balíčku
 ### 0.2
 - Přidána funkce `get_api_info`, `get_absence`, `get_gdpr_info`, `get_marks`, `get_events`, `get_my_events` a `get_public_events`.
 - Nově je možné instalovat balíček pomocí `pip` příkazu.
