@@ -147,8 +147,6 @@ class BakapiUser:
             else:
                 raise BakaAPIException
 
-        # retry with refreshed token if needed, but prevent infinite loops in case the
-        # the cause was something else
         if (
             d == {"Message": "Authorization has been denied for this request."}
             and not is_retry
@@ -162,40 +160,50 @@ class BakapiUser:
     def get_user_info(self):
         return self.query_api("api/3/user")
 
-    def get_homework(
-        self,
-        since: Union[datetime, date, str] = None,
-        to: Union[datetime, date, str] = None,
+    def get_homework_count(
+            self,
     ):
-        if type(since) in (date, datetime):
-            since = since.strftime("%Y-%m-%d")
-        if type(to) in (date, datetime):
-            to = to.strftime("%Y-%m-%d")
-        params = {}
-        if since:
-            params["from"] = since
-        if to:
-            params["to"] = to
-        return self.query_api("api/3/homework", params=params)
-
+        
+        return self.query_api("api/3/homeworks/count-actual")
+    
+    def get_timetable_perm(
+            self,
+    ):
+        return self.query_api("api/3/timetable/permanent")
+        
     def get_timetable_actual(
         self,
-        since: Union[datetime, date, str] = None,
-        to: Union[datetime, date, str] = None,
+        date: Union[datetime, date, str] = None,
+    ):
+        if type(date) in (date, datetime):
+            date = date.strftime("%Y-%m-%d")
+    
+        params = {"date": date}
+    
+        return self.query_api("api/3/timetable/actual", params=params)
+    
+    def get_substitutions(
+            self,
+            since: Union[datetime, date, str] = None,
     ):
         if type(since) in (date, datetime):
             since = since.strftime("%Y-%m-%d")
-        if type(to) in (date, datetime):
-            to = to.strftime("%Y-%m-%d")
 
-        params = {"from": since, "to": to}
-        
-        return self.query_api("api/3/timetable/actual", params=params)
+        params = {"from": since}
+
+        return self.query_api("api/3/substitutions", params=params)
 
     def get_subjects_info(
             self
             ):
         return self.query_api("api/3/subjects")
+    
+    def get_subject_themes(
+            self,
+            subject_id
+    ):
+        endpoint = f"api/3/subjects/themes/{subject_id}"
+        return self.query_api(endpoint)
     
     def get_api_info(
             self
@@ -214,29 +222,52 @@ class BakapiUser:
     
     def get_marks(
         self,
-        since: Union[datetime, date, str] = None,
-        to: Union[datetime, date, str] = None,
+    ):
+        return self.query_api("api/3/marks")
+    
+    def get_marks_final(
+            self
+    ):
+        return self.query_api("api/3/marks/final")
+    
+    def get_marks_measures(
+            self,
+    ):
+        
+        return self.query_api("api/3/marks/measures")
+    
+    def get_events(
+            self,
+            since: Union[datetime, date, str] = None,
     ):
         if type(since) in (date, datetime):
             since = since.strftime("%Y-%m-%d")
-        if type(to) in (date, datetime):
-            to = to.strftime("%Y-%m-%d")
-        
-        params = {"from": since, "to": to}
-        
-        return self.query_api("api/3/marks", params=params)
-    
-    def get_events(
-            self
-    ):
-        return self.query_api("api/3/events")
+        params = {}
+        if since:
+            params["from"] = since
+            return self.query_api("api/3/events/my", params=params)
     
     def get_my_events(
-            self
+            self,
+            since: Union[datetime, date, str] = None,
     ):
-        return self.query_api("api/3/events/my")
+        if type(since) in (date, datetime):
+            since = since.strftime("%Y-%m-%d")
+        params = {}
+        if since:
+            params["from"] = since
+            return self.query_api("api/3/events/my", params=params)
     
     def get_public_events(
-            self
+            self,
+            since: Union[datetime, date, str] = None,
     ):
-        return self.query_api("api/3/events/public")
+        if type(since) in (date, datetime):
+            since = since.strftime("%Y-%m-%d")
+        params = {}
+        if since:
+            params["from"] = since
+            return self.query_api("api/3/events/my", params=params)
+
+
+
