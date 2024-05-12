@@ -18,6 +18,11 @@ pip install bakapi-v2
 py -m pip install bakapi-v2
 ```
 ## Changelog
+### 0.4
+- Přidána funkce `get_timetable`, `get_timetable_actual`, `get_substitutions`, `get_subjects_info`, `get_subject_themes`, `get_marks_final`, `get_marks_measures` a `get_marks`.
+- Oprava chyb v dokumentaci
+- Oprava chyb v kódu
+- Dokumentace API klienta je dostupná v souboru [`API_docs.md`](https://github.com/MortikCZ/bakapi-v2/blob/main/API_docs.md).
 ### 0.3 
 - Oprava PyPi balíčku
 ### 0.2
@@ -27,27 +32,4 @@ py -m pip install bakapi-v2
 - První release 
 
 ## Dokumentace
-API klient je navržen pro komunikaci s API Bakalářů pomocí jazyka Python. Poskytuje sadu funkcí pro získávání dat z API a jejich manipulaci.
-
-### Funkce API klienta:
-- `get_student_info`: Tato funkce slouží k získání informací o studentovi.
-- `get_subjects`: Tato funkce vrátí seznam předmětů a informace o nich..
-- `get_timetable_actual`: Tato funkce vrátí rozvrh studenta.
-- `get_homework`: Tato funkce vrátí seznam domácích úkolů.
-- `get_absence`: Tato funkce vrátí seznam absencí studenta.
-- `get_marks`: Tato funkce vrátí seznam známek studenta.
-- `get_events`: Tato funkce vrátí seznam událostí.
-- `get_my_events`: Tato funkce vrátí seznam událostí studenta.
-- `get_public_events`: Tato funkce vrátí seznam veřejných událostí.
-- `get_gdpr_info`: Tato funkce vrátí informace o GDPR.
-- `get_api_info`: Tato funkce vrátí informace o API.
-
-Pro použití API klienta je nejprve nutné provést inicializaci objektu klienta a přihlášení pomocí přihlašovacích údajů studenta. Poté je možné volat jednotlivé funkce pro získání a manipulaci s daty z API.
-
-Proměnné potřebné pro přihlášení:
-- `username`: Uživatelské jméno
-- `password`: Heslo
-- `url`: URL adresa Bakalářů (musí odkazovat na přihlašovací stránku).
-
-##
-Kompletní dokumentaci k API Bakalářů a seznam Endpointů naleznete [zde](https://github.com/bakalari-api/bakalari-api-v3).
+Dokumentace k tomuto projektu je dostupná v souboru [`API_docs.md`](https://github.com/MortikCZ/bakapi-v2/blob/main/API_docs.md) v kořenovém adresáři tohoto repozitáře.
